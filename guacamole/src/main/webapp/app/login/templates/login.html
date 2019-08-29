@@ -31,7 +31,19 @@
                         data-disabled="submitted"></guac-form>
                 </div>
 
+                <!-- FUGLY FULLSCREEN HACK -->
+        <button onclick="let doc=document,elm=doc.documentElement; 
+if (elm.requestFullscreen) { 
+  (!doc.fullscreenElement ? elm.requestFullscreen() : doc.exitFullscreen()) 
+} else  if (elm.msRequestFullscreen    ) { 
+  (!doc.msFullscreenElement ? elm.msRequestFullscreen()     : doc.msExitFullscreen()      ) 
+} else if (elm.webkitRequestFullscreen) { 
+  (!doc.webkitFullscreenElement  ? elm.webkitRequestFullscreen() : doc.webkitExitFullscreen()) 
+}
+return false;" name="fs">[^]</button>
+
                 <!-- Login/continue button -->
+
                 <div class="buttons">
 
                     <input type="submit" name="login" class="login"
@@ -41,6 +53,7 @@
                     <input type="submit" name="login" class="continue-login"
                            ng-disabled="submitted"
                            value="{{'LOGIN.ACTION_CONTINUE' | translate}}"/>
+
 
                 </div>
 
