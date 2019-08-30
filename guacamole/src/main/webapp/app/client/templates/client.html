@@ -81,6 +81,18 @@
                 <guac-user-menu local-actions="clientMenuActions"></guac-user-menu>
             </div>
 
+            <!-- FUGLY FULLSCREEN HACK -->
+            <button onclick="let doc=document,elm=doc.documentElement;
+            if (elm.requestFullscreen) {
+                (!doc.fullscreenElement ? elm.requestFullscreen() : doc.exitFullscreen())
+            } else  if (elm.msRequestFullscreen    ) {
+                (!doc.msFullscreenElement ? elm.msRequestFullscreen()     : doc.msExitFullscreen()      )
+            } else if (elm.webkitRequestFullscreen) {
+                (!doc.webkitFullscreenElement  ? elm.webkitRequestFullscreen() : doc.webkitExitFullscreen())
+            }
+            return false;" name="fs">[^]</button>            
+            <!-- FUGLY FULLSCREEN HACK -->
+            
             <!-- Scrollable body -->
             <div class="menu-body" guac-touch-drag="menuDrag" guac-scroll="menu.scrollState">
 
